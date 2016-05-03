@@ -1,0 +1,22 @@
+{
+  "name": "bookrazy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.0.0",
+    "gulp-contrib-copy": "^0.1.2",
+    "gulp-watch": "^4.3.5"
+  },
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "semantic-ui": "^2.1.8"
+  }
+}

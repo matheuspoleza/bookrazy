@@ -1,12 +1,14 @@
-;(function(){
-  'use strict';
+'use strict';
 
-  angular.module('book-app', ['ngRoute'])
-    .config(function($routeProvider) {
-      $routeProvider
-       .when('/', {
-        templateUrl: 'app/home/home.template.html',
-        controller: 'homeController'
-      });
-    });
-})();
+require('./commons/commons.module');
+require('./book/book.module');
+require('./author/author.module');
+
+var dependencies = [
+  'ngRoute',
+  'app.commons',
+  'app.book',
+  'app.author'
+];
+
+angular.module('app', dependencies );

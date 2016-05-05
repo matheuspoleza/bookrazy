@@ -1,3 +1,4 @@
 node_modules
 src/dependencies
 src/semantic
+src/dist

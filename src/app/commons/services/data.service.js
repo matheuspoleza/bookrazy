@@ -1,69 +1,59 @@
 'use strict';
 
-function dataService(randomService){
+function dataService($q, randomService){
   var service = {};
   service.books = [];
 
-  function loadData(){
-    for(var i = 1; i < 1000000; i++){
+  function loadBooksData(){
+    for(var i=0, len=1000000; i<len; i++){
       var genre = randomService.genre();
+      var dateTime = randomService.date();
+      var date = dateTime.toLocaleDateString();
 
       var book = {
-        id: i,
-        genre:  genre,
+        genre: genre,
         image: randomService.image(genre),
         title: randomService.title(),
         author: {
           name: randomService.name(),
           genre: genre
-        }
+        },
+        publish_date: date,
+        recommended: service.isBookRecommended(dateTime)
       };
 
       service.books.push(book);
     }
-  }
-
-  service.searchByGenre = function(genre){
-    var results = [];
-    for(var i = 0; i < service.books.length; i++){
-      if(service.books[i].genre === genre){
-        results.push(service.books[i]);
-      }
-    }
-    return results;
   };
 
-  service.searchByTitle = function(title){
-    var results = [];
-    for(var i = 0; i < service.books.length; i++){
-      if(service.books[i].title === title){
-        results.push(service.books[i]);
-      }
-    }
-    return results;
+  service.isBookRecommended = function(dateTime){
+    var isFriday = dateTime.getDay() === 6;
+    var isHallowen = dateTime.getDate() && dateTime.getMonth() + 1 === 10;
+    return isFriday || isHallowen;
   };
 
-  service.searchByAuthor = function(author){
+  service.searchByTags = function(tags){
+    var deferred = $q.defer();
+
     var results = [];
-    for(var i = 0; i < service.books.length; i++){
-      if(service.books[i].author === author){
-        results.push(service.books[i]);
+    for(var i = 0, len=service.books.length + 1; i < len ;i++){
+      var book = service.books[i];
+      if(i === service.books.length){
+        deferred.resolve(results);
+        break;
+      }
+
+      if(tags.indexOf('recommended') !== -1 && book.recommended){
+        results.push(book);
+      } else if(tags.indexOf(book.genre) !== -1){
+        results.push(book);
       }
     }
-    return results;
+
+    return deferred.promise;
   };
 
-  service.getFavorites = function(){
-    var results = [];
-    for(var i = 0; i < service.books.length; i++){
-      if(service.books[i].favorite){
-        results.push(service.books[i]);
-      }
-    }
-    return results;
-  };
-
-  loadData();
+  loadBooksData();
   return service;
 }
 

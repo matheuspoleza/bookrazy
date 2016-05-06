@@ -8,11 +8,15 @@
   </div>
   <div class="description">
     <div class="ui label"><i class="globe icon"></i> {{ data.genre }}</div>
+    <div ng-show="{{ data.recommended }}" class="ui green label ng-binding" style="margin-top: 10px;">
+      <i class="thumbs up icon"></i>
+      recommended
+    </div>
   </div>
 </div>
 <div class="extra content">
   <div class="ui rating" data-max-rating="1"></div>
   <span class="right floated">
-    Joined in 2013
+    Publish Date: {{ data.publish_date }}
   </span>
 </div>

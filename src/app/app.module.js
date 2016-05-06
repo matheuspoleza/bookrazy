@@ -2,13 +2,12 @@
 
 require('./commons/commons.module');
 require('./book/book.module');
-require('./author/author.module');
 
 var dependencies = [
   'ngRoute',
+  'angular-inview',
   'app.commons',
-  'app.book',
-  'app.author'
+  'app.book'
 ];
 
 angular.module('app', dependencies );

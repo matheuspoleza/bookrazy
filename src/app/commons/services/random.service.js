@@ -15,6 +15,10 @@ function randomService(){
     return text;
   };
 
+  service.date = function(){
+    return faker.date.past();
+  };
+
   service.image = function(genre){
     return 'assets/images/' + genre + '/photo' + service.number(7) + '.png';
   };
@@ -32,7 +36,6 @@ function randomService(){
   };
 
   service.title = function(genre){
-    debugger;
     return faker.hacker.ingverb() + ' ' + faker.hacker.noun();
   };
 

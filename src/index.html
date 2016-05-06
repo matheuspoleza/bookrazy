@@ -5,16 +5,20 @@
     <title>Bookrazy</title>
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
   </head>
-
   <body ng-app="app">
-    <h3>Bookrazy</h3>
+
+    <div class="ui active inverted dimmer" id="loader">
+      <div class="ui large text loader">Loading</div>
+    </div>
 
     <div ng-view></div>
 
     <!-- Dependencies -->
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
     <script src="dependencies/faker.min.js"></script>
     <script src="dependencies/angular.min.js"></script>
+    <script src="dependencies/angular-inview.js"></script>
     <script src="dependencies/angular-route.min.js"></script>
 
     <!-- app module-->

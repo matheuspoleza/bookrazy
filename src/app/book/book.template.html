@@ -1,15 +1,18 @@
-<h3>Timeline Page</h3>
-
 <div class="ui container">
-  <a href="javascript:void(0)" ng-click="bookCtrl.order = 'likes'">Most Popular</a>
+  <div class="ui large text loader" ng-show="bookCtrl.loadingData">Loading</div>
 
-  <search data="bookCtrl.authors"></search>
-
-  <div class="ui five cards" ng-hide="bookCtrl.isSearching">
-    <item class="card" ng-repeat="item in bookCtrl.arrayTest | limitTo: bookCtrl.limit" data="item"></item>
+  <div class="ui secondary  menu">
+    <div class="right menu">
+      <filter filters="bookCtrl.filters"></filter>
+    </div>
   </div>
 
-  <div class="ui five cards" ng-show="bookCtrl.isSearching">
-    <item class="card" ng-repeat="result in bookCtrl.results | limitTo: 100" data="result"></item>
+  <div class="ui five cards" in-view-container>
+    <item
+      class="card"
+      ng-repeat="book in bookCtrl.results | limitTo: bookCtrl.limit"
+      in-view="bookCtrl.inView($index, $inview, $inviewpart)"
+      data="book">
+    </item>
   </div>
 </div>

@@ -2,22 +2,38 @@
 
 function BookController($scope, dataService){
   var self = this;
+  var booksLength = 1000000;
 
   self.shouldCleanList = false;
   self.limit = 100;
 
-  self.results = dataService.books;
+  self.books = [];
+  self.results = [];
+
+  dataService.loadBooksData(booksLength).then(function(data){
+    self.results = data;
+  });
 
   $scope.$on('filterChange', function(event, data){
     if(data === '' || typeof data === 'undefined'){
-      self.results = dataService.books;
+      self.results = self.books;
       $scope.$apply();
     } else {
-      dataService.searchByTags(data).then(function(data){
-        self.results = data;
-      });
+      saveBooksData();
+      getSearchData(data);
     }
   });
+
+  function saveBooksData(){
+    if(self.books.length === 0)
+      self.books = self.results;
+  }
+
+  function getSearchData(data){
+    dataService.searchByTags(data, self.books).then(function(data){
+      self.results = data;
+    });
+  }
 
   self.search = '';
   self.filters = [

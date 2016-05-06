@@ -2,10 +2,18 @@
 
 function dataService($q, randomService){
   var service = {};
-  service.books = [];
 
-  function loadBooksData(){
-    for(var i=0, len=1000000; i<len; i++){
+  service.loadBooksData = function(length){
+    var deferred = $q.defer();
+    var books = [];
+
+    for(var i=0, len=length + 1; i<len; i++){
+
+      if(i === length){
+        deferred.resolve(books);
+        break;
+      }
+
       var genre = randomService.genre();
       var dateTime = randomService.date();
       var date = dateTime.toLocaleDateString();
@@ -22,8 +30,10 @@ function dataService($q, randomService){
         recommended: service.isBookRecommended(dateTime)
       };
 
-      service.books.push(book);
+      books.push(book);
     }
+
+    return deferred.promise;
   };
 
   service.isBookRecommended = function(dateTime){
@@ -32,13 +42,14 @@ function dataService($q, randomService){
     return isFriday || isHallowen;
   };
 
-  service.searchByTags = function(tags){
+  service.searchByTags = function(tags, books){
     var deferred = $q.defer();
 
     var results = [];
-    for(var i = 0, len=service.books.length + 1; i < len ;i++){
-      var book = service.books[i];
-      if(i === service.books.length){
+    for(var i = 0, len=books.length + 1; i < len ;i++){
+      var book = books[i];
+      
+      if(i === books.length){
         deferred.resolve(results);
         break;
       }
@@ -53,7 +64,6 @@ function dataService($q, randomService){
     return deferred.promise;
   };
 
-  loadBooksData();
   return service;
 }
 

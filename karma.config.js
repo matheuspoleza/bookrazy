@@ -1,10 +1,7 @@
 module.exports = function(config) {
     config.set({
 
-        files: [
-          'src/app/**/*.spec.js',
-          'src/app/commons/**/*.spec.js'
-        ],
+        files: ['src/app/app.spec.js'],
 
         frameworks: [
           'jasmine',
@@ -13,8 +10,7 @@ module.exports = function(config) {
         browsers: ['PhantomJS'],
 
         preprocessors: {
-          'src/app/**/*.spec.js': ['webpack'],
-          'src/app/commons/**/*.spec.js': ['webpack']
+          'src/app/app.spec.js': ['webpack']
         },
 
         webpack: {},

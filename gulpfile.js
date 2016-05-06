@@ -6,6 +6,8 @@ var connect = require('gulp-connect');
 var watch = require('./src/semantic/tasks/watch');
 var build = require('./src/semantic/tasks/build');
 var webpack = require('gulp-webpack');
+var karmaServer = require('karma').Server;
+var runSequence = require('run-sequence');
 
 var dependencies = [
   'node_modules/angular/angular.min.js',
@@ -13,6 +15,30 @@ var dependencies = [
   'node_modules/angular-inview/angular-inview.js',
   'node_modules/angular-route/angular-route.min.js'
 ];
+
+gulp.task('test-no-quit', function(done) {
+  new karmaServer.start({
+    configFile: __dirname + '/karma.config.js',
+    singleRun: true
+  }, function(exitCode) {
+    if (exitCode === 0) {
+      done();
+    } else {
+      var msg = "Tests failed with exit code:" + exitCode;
+      console.error(msg);
+      throw msg;
+    }
+  });
+});
+
+gulp.task('quit', function(cb) {
+  process.exit(0);
+});
+
+gulp.task('test', function(cb) {
+  runSequence('test-no-quit', 'quit');
+  cb();
+});
 
 gulp.task('ui', build);
 

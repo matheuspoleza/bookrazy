@@ -1,71 +1,26 @@
-/*jslint node: true */
-module.exports = function (config) {
-    'use strict';
-
-    var app_folder = 'src/app/';
-
+module.exports = function(config) {
     config.set({
 
-        // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: '',
-
-        // frameworks to use
-        // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jasmine', 'requirejs'],
-
-        // list of files / patterns to load in the browser
         files: [
-            {
-              pattern: app_folder + '/**/*.js',
-              included: false
-            },
-            {
-              pattern: app_folder + '/*.js',
-              included: false
-            },
-            {
-              pattern: app_folder + '../dependencies/*.js',
-              included: false
-            },
-            {
-              pattern: app_folder + '/**/*.spec.js',
-              included: false
-            }
+          'src/app/**/*.spec.js',
+          'src/app/commons/**/*.spec.js'
         ],
 
-        // list of files to exclude
-        exclude: [
+        frameworks: [
+          'jasmine',
         ],
 
-        // preprocess matching files before serving them to the browser
-        // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-        preprocessors: {
-        },
-
-        // test results reporter to use
-        // possible values: 'dots', 'progress'
-        // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress'],
-
-        // web server port
-        port: 2080,
-
-        // enable / disable colors in the output (reporters and logs)
-        colors: true,
-
-        // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
-
-        // enable / disable watching file and executing tests whenever any file changes
-        autoWatch: false,
-
-        // start these browsers
-        // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: ['PhantomJS'],
 
-        // Continuous Integration mode
-        // if true, Karma captures browsers, runs the tests and exits
-        singleRun: true
+        preprocessors: {
+          'src/app/**/*.spec.js': ['webpack'],
+          'src/app/commons/**/*.spec.js': ['webpack']
+        },
+
+        webpack: {},
+
+        webpackMiddleware: {
+            noInfo: true
+        }
     });
 };

@@ -1,4 +1,4 @@
-describe('Data Service Test', function(){
+describe('Random Service Test', function(){
   'use strict';
 
   describe('On load', function(){

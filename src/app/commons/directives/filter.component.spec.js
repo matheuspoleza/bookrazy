@@ -1,4 +1,4 @@
-describe('Data Service Test', function(){
+describe('Filter Component Test', function(){
   'use strict';
 
   describe('On load', function(){

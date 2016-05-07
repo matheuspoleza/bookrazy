@@ -1,9 +1,9 @@
 # bookrazy  ![travis](https://travis-ci.org/matheuspoleza/bookrazy.svg?branch=master)
 
 Its a experimental angular app. Cool features:
-- [x] [Webpack build system](#build)
-- [x] [Modular Angular App](#sample)
-- [x] [E2E Tests - dalekjs](#interface)
+- [x] Webpack build system
+- [x] **Modular Angular Pattern**
+- [x] E2E Tests - dalekjs
 - [x] Animation loader
 - [x] Interactive filters
 - [x] Recommended books: -> Publish Date on Friday or Hallowen

@@ -5,7 +5,8 @@ Its a experimental angular app. Cool features:
 - [x] [Modular Angular App](#sample)
 - [x] [E2E Tests - dalekjs](#interface)
 - [x] Animation loader
-- [x] Cool filters
+- [x] Interactive filters
+- [x] Recommended books: -> Publish Date on Friday or Hallowen
 - [x] Generate 1 milion list with infinite-scroll
 
 ## Technologies:
@@ -15,6 +16,7 @@ Its a experimental angular app. Cool features:
 - Jasmine
 - Gulp
 - DalekJS
+- Semantic-UI Framework
 
 ## Getting Started
 

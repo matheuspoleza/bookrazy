@@ -18,10 +18,16 @@ Its a experimental angular app. Cool features:
 
 ## Getting Started
 
+**Clone the project**
+```sh
+$ git clone git@github.com:matheuspoleza/bookrazy.git
+```
+
+**Install deps**
 ```sh
 $ npm install
 ```
-
+**Install gulp global (if necessary)**
 ```sh
 $ npm install -g gulp-cli
 ```
@@ -35,8 +41,10 @@ $ gulp start
 **Thats all! See server running :smile:**
 ![server running](assets/localhost.png)
 
-**Running Tests**
 
+## Tests
+
+**Running**
 ```sh
 $ gulp test
 ```

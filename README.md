@@ -1,4 +1,4 @@
-# bookrazy  ![travis](https://travis-ci.org/matheuspoleza/beginner-angular-amd.svg?branch=master)
+# bookrazy  ![travis](https://travis-ci.org/matheuspoleza/bookrazy.svg?branch=master)
 
 Its a experimental angular app. Cool features:
 - [x] [Webpack build system](#build)
@@ -7,6 +7,8 @@ Its a experimental angular app. Cool features:
 - [x] Animation loader
 - [x] Interactive filters
 - [x] Recommended books: -> Publish Date on Friday or Hallowen
+- [x] Cool images made by me. The images are linked to each gender
+- [x] Fakes titles and names
 - [x] Generate 1 milion list with infinite-scroll
 
 ## Technologies:
@@ -51,4 +53,4 @@ $ gulp start
 $ gulp test
 ```
 
-[MIT](https://github.com/fdaciuk/licenses/blob/master/MIT-LICENSE.md) © Matheus Poleza.
+[MIT](https://github.com/matheuspoleza/bookrazy/LICENSE.md) © Matheus Poleza.

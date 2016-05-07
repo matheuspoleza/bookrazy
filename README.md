@@ -1,4 +1,4 @@
-# beginner-angular-amd  ![travis](https://travis-ci.org/matheuspoleza/beginner-angular-amd.svg?branch=master)
+# bookrazy  ![travis](https://travis-ci.org/matheuspoleza/beginner-angular-amd.svg?branch=master)
 
 Its a experimental angular app. Cool features:
 - [x] [Webpack build system](#build)
@@ -16,10 +16,11 @@ Its a experimental angular app. Cool features:
 - Gulp
 - DalekJS
 
-## Install
+## Getting Started
 
 ```sh
 $ npm install
+```
 
 ```sh
 $ npm install -g gulp-cli
@@ -34,7 +35,7 @@ $ gulp start
 **Thats all! See server running :smile:**
 ![server running](assets/localhost.png)
 
-**Testing**
+**Running Tests**
 
 ```sh
 $ gulp test

@@ -38,7 +38,7 @@ $ npm install -g gulp-cli
 $ gulp start
 ```
 
-**Thats all! See server running :smile:**
+**Thats all! See server running in localhost:8080 :smile:**
 ![server running](assets/localhost.png)
 
 

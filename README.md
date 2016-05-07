@@ -46,11 +46,18 @@ $ gulp start
 ![server running](Selection_408.png)
 
 
-## Tests
+## Unit Test
 
 **Running**
 ```sh
 $ gulp test
+```
+
+## E2E Test
+
+**Running**
+```sh
+$ npm run e2e
 ```
 
 [MIT](https://github.com/matheuspoleza/bookrazy/LICENSE.md) © Matheus Poleza.

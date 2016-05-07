@@ -39,7 +39,7 @@ $ gulp start
 ```
 
 **Thats all! See server running in localhost:8080 :smile:**
-![server running](assets/localhost.png)
+![server running](Selection_408.png)
 
 
 ## Tests

@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "e2e": "dalek e2e/index.js -b chrome"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "angular-mocks": "^1.5.5",
+    "dalek-browser-chrome": "0.0.11",
     "dalekjs": "0.0.9",
     "gulp": "^3.9.1",
     "gulp-connect": "^4.0.0",
@@ -19,6 +20,7 @@
     "jasmine": "^2.4.1",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",
+    "karma-html2js-preprocessor": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-webpack": "^1.7.0",

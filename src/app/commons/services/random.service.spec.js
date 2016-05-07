@@ -1,7 +1,7 @@
 'use strict';
 
-var commons = require('./../commons.module');
 var randomService;
+require('./../commons.module');
 
 describe('Random Service Test', function(){
   beforeEach(angular.mock.module('app.commons'));
@@ -11,20 +11,8 @@ describe('Random Service Test', function(){
   }));
 
   describe('On load', function(){
-    it('should ...', function(){
+    it('should service to be defined', function(){
       expect( randomService ).toBeDefined();
-    });
-  });
-
-  describe('On change limit', function(){
-    it('should ...', function(){
-      expect( true ).toBeTruthy();
-    });
-  });
-
-  describe('On search', function(){
-    it('should ...', function(){
-      expect( true ).toBeTruthy();
     });
   });
 });

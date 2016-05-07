@@ -1,5 +1,8 @@
+'use strict';
+
 describe('Timeline Controller Test', function(){
-  'use strict';
+
+  beforeEach(angular.mock.module('app.book'));
 
   describe('On load', function(){
     it('should ...', function(){

@@ -6,15 +6,6 @@ function randomService(){
   var lastNames = [];
   var genres = ['foods', 'animals', 'studies', 'travels', 'horror', 'finance'];
 
-  service.text = function(length){
-    var text = '';
-    for(var i = 0; i < length; i++){
-      var word = getRandom(words);
-      text.concat(word);
-    }
-    return text;
-  };
-
   service.date = function(){
     return faker.date.past();
   };
@@ -36,7 +27,7 @@ function randomService(){
   };
 
   service.title = function(genre){
-    return faker.hacker.ingverb() + ' ' + faker.hacker.noun();
+    return faker.lorem.words();
   };
 
   function getRandom(obj){

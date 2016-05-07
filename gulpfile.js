@@ -10,6 +10,7 @@ var karmaServer = require('karma').Server;
 var runSequence = require('run-sequence');
 
 var dependencies = [
+  'node_modules/jquery/dist/jquery.min.js',
   'node_modules/angular/angular.min.js',
   'node_modules/faker/build/build/faker.min.js',
   'node_modules/angular-inview/angular-inview.js',

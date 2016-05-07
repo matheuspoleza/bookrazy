@@ -1,22 +1,26 @@
 module.exports = function(config) {
-    config.set({
+  config.set({
 
-        files: ['src/app/app.spec.js'],
+      files: [
+        'src/app/app.spec.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'src/semantic/dist/semantic.min.js',
+      ],
 
-        frameworks: [
-          'jasmine',
-        ],
+      frameworks: [
+        'jasmine'
+      ],
 
-        browsers: ['PhantomJS'],
+      browsers: ['PhantomJS'],
 
-        preprocessors: {
-          'src/app/app.spec.js': ['webpack']
-        },
+      preprocessors: {
+        'src/app/app.spec.js': ['webpack']
+      },
 
-        webpack: {},
+      webpack:{},
 
-        webpackMiddleware: {
-            noInfo: true
-        }
-    });
+      webpackMiddleware: {
+          noInfo: true
+      }
+  });
 };

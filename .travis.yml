@@ -14,4 +14,4 @@ before_script:
   - npm install -g gulp-cli
   - npm install
 script:
-  - grunt test
+  - gulp test

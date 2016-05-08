@@ -27,7 +27,7 @@ function dataService($q, randomService){
           genre: genre
         },
         publish_date: date,
-        recommended: service.isBookRecommended(dateTime)
+        recommended: service.isRecommended(dateTime, genre)
       };
 
       books.push(book);
@@ -36,11 +36,23 @@ function dataService($q, randomService){
     return deferred.promise;
   };
 
-  service.isBookRecommended = function(dateTime){
-    var isFriday = dateTime.getDay() === 6;
-    var isHallowen = dateTime.getDate() && dateTime.getMonth() + 1 === 10;
-    return isFriday || isHallowen;
+  service.isRecommended = function(dateTime, genre){
+    if(genre === 'finance')
+      return isFriday(dateTime);
+
+    if(genre === 'horror')
+      return isHallowen(dateTime);
+
+    return false;
   };
+
+  function isFriday(dateTime){
+    return dateTime.getDay() === 6;
+  }
+
+  function isHallowen(dateTime){
+    return dateTime.getDate() && dateTime.getMonth() + 1 === 10;
+  }
 
   service.searchByTags = function(tags, books){
     var deferred = $q.defer();
@@ -48,7 +60,7 @@ function dataService($q, randomService){
     var results = [];
     for(var i = 0, len=books.length + 1; i < len ;i++){
       var book = books[i];
-      
+
       if(i === books.length){
         deferred.resolve(results);
         break;
